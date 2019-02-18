@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+
+
+    <title>player</title>
+</head>
+
+<body>
+
+    <div class="preloader-2" id="page-preloader">
+        <div class="loader"><span id="load-perc">0%</span></div>
+    </div>
+
+    <div class="WholeContainer" onload="lastPoint()">
+        <div class="ContantScreen">
+
+            <div class="VideoHolder">
+                <video id="video1" src="videos/V1.mp4" style="display:block" onseeking="seekChangeMain()" onseeked="seekChangeMain()"></video>
+                <video id="video2" src="videos/V2.mp4" style="display:none" muted></video>
+                <video id="video3" src="videos/V3.mp4" style="display:none" muted></video>
+            </div>
+
+            <div id="Overlay" class="Overlay" onmouseout="hoverOut()" onmouseover="hoverOver()" onmousemove="mouseMove()"
+            onload="muteOther()">
+                <div class="InteractiveContant" id="show1">
+
+                    <!-- <p class="InteractiveContentMainText" style="text-align: center;" id="press">press</p> -->
+                    <br>
+                    <br>
+                    <div class="video_keys">
+                        <div class="video_key active" onclick="changeByButton1()">A</div>
+                        <div class="video_key" onclick="changeByButton2()">S</div>
+                        <div class="video_key" id="thirdKey" onclick="changeByButton3()">D
+                        </div>
+                    </div>
+                    <p class="InteractiveContentMainText" style="margin-top: 0; letter-spacing: 0.18em; padding-left: 0.09em;">
+                        press to switch perspectives
+                    </p>
+                </div>
+                <div class="row additional_videos" id="show2">
+
+                    <div class="thumb" id="thumb1" onclick="changeByScreen1()" style="display:none;">
+                        <video class="sub_video" id="sub1" muted src="videos/V1.mp4" ></video>
+                    </div>
+                    <div class="thumb" id="thumb2" onclick="changeByScreen2()">
+                        <video class="sub_video" id="sub2" muted src="videos/V2.mp4"></video>
+                    </div>
+                    <div class="thumb" id="thumb3" onclick="changeByScreen3()">
+                        <video class="sub_video" id="sub3" muted src="videos/V3.mp4"></video>
+                    </div>
+
+
+                </div>
+                <div class="controls" id="show3">
+                    <div class="seekBar"><input title="" id="seekslider" type="range" min="0" max="100" value="0" step="1">
+                    </div>
+
+                    <div class="leftHolder m-10">
+
+                        <div class="playBtn" onclick="muteVideo()" id="volup" style="display:block"><img src="icons/volume-up.png"
+                                alt=""></div>
+
+                        <div class="mute" onclick="loudVideo()" id="mute" style="display:none"><img src="icons/mute.png"
+                                alt=""></div>
+
+                        <input title="" id="volumeslider" onload="setvolume()" type="range" min="0" max="100" value="100"
+                            step="1">
+
+                        <div class="controlTime"><span id="curtimetext">00:00 </span> / <span id="durtimetext">
+                                00:00</span></div>
+
+                    </div>
+
+                    <div onclick="playAllVideos()" id="play" class="play" style="display:block"><img src="icons/play.png"
+                            alt=""></div>
+
+                    <div class="pause" onclick="pauseAllVideos()" id="pause" style="display: none"><img src="icons/pause.png"
+                            alt=""></div>
+
+                    <div class="m-10" id="fullScreen" onclick="openFullscreen();"><img src="icons/fullscreen.png" alt="">
+                    </div>
+                    <div class="m-10" id="smallScreen" onclick="closeFullscreen();" style="display:none"><img src="icons/smallscreen.png"
+                            alt=""></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
